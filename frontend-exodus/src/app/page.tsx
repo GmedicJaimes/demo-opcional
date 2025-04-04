@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { loginUser } from "../Firebase/Handlers/AuthHandler";  // Asegúrate de que la ruta esté correcta
+import { loginUser } from "../Firebase/Handlers/AuthHandler"; // Asegúrate de que la ruta esté correcta
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -18,8 +18,13 @@ export default function Login() {
     setError("");
 
     try {
-      const user = await loginUser(email, password);
-      router.push("/dashboard");
+      if (email === "adminDemo" && password === "@adminUser@") {
+        router.push("/dashboard");
+        return;
+      }
+
+      // const user = await loginUser(email, password);
+      // router.push("/dashboard");
     } catch (err) {
       setError("Credenciales incorrectas. Intenta de nuevo.");
       console.error(err);
@@ -40,21 +45,25 @@ export default function Login() {
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <div className="rounded-md -space-y-px">
             <div className="mb-4">
-              <label htmlFor="email" className="sr-only">Email</label>
+              <label htmlFor="email" className="sr-only">
+                Email
+              </label>
               <input
                 id="email"
                 name="email"
-                type="email"
+                type="text"
                 autoComplete="email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
-                placeholder="Correo electrónico"
+                placeholder="User"
               />
             </div>
             <div>
-              <label htmlFor="password" className="sr-only">Contraseña</label>
+              <label htmlFor="password" className="sr-only">
+                Contraseña
+              </label>
               <input
                 id="password"
                 name="password"
@@ -90,14 +99,11 @@ export default function Login() {
           </div>
 
           <div className="text-sm text-center">
-            <Link href="/forgot-password" className="font-medium text-blue-600 hover:text-blue-500">
+            <Link
+              href="/forgot-password"
+              className="font-medium text-blue-600 hover:text-blue-500"
+            >
               ¿Olvidaste tu contraseña?
-            </Link>
-          </div>
-
-          <div className="text-sm text-center">
-            <Link href="/register" className="font-medium text-blue-600 hover:text-blue-500">
-              ¿No tienes cuenta? Regístrate aquí
             </Link>
           </div>
         </form>
