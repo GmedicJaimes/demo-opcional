@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { loginUser } from "../Firebase/Handlers/AuthHandler"; // Asegúrate de que la ruta esté correcta
+// import { loginUser } from "../Firebase/Handlers/AuthHandler"; // Asegúrate de que la ruta esté correcta
 
 export default function Login() {
   const [email, setEmail] = useState("");

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Poppins, Lexend_Deca } from "next/font/google";
+import { Lexend_Deca } from "next/font/google";
 import "./globals.css";
 
 // const poppins = Poppins({
