@@ -35,15 +35,19 @@ import { doc, setDoc } from "firebase/firestore";
     });
 
     return user;
-  } catch (error: any) {
-    console.error("Error en el registro:", error.message);
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      console.error("Error en el registro:", error.message);
+    } else {
+      console.error("Error en el registro:", error);
+    }
     
     // si hay un error al crear usuario en db, le elimina tambien la autenticacion asi luego no hay errores al vovler a intentarlo
     if (auth.currentUser) {
-      await deleteUser(auth.currentUser).catch((err: any) => console.error("Error eliminando usuario:", err));
+      await deleteUser(auth.currentUser).catch((err: unknown) => console.error("Error eliminando usuario:", err));
     }
 
-    throw new Error(error.message || "Error al registrar el usuario.");
+    throw new Error((error instanceof Error ? error.message : "Error desconocido") || "Error al registrar el usuario.");
   }
 };
 
@@ -53,7 +57,11 @@ export const loginUser = async (email: string, password: string) => {
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
     return userCredential.user;
-  } catch (error: any) {
-    throw new Error('Error al iniciar sesión: ' + error.message);
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      throw new Error('Error al iniciar sesión: ' + error.message);
+    } else {
+      throw new Error('Error al iniciar sesión: Error desconocido');
+    }
   }
 };

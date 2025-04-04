@@ -8,20 +8,6 @@ import Dashboard from "./tableroInicio/page";
 import Usuarios from "./Usuarios/page";
 import Productos from "./CargarVotantes/page";
 
-const Reportes = () => (
-  <div>
-    <h2 className="text-2xl font-semibold mb-4">Reportes y Estadísticas</h2>
-    <p>Visualiza reportes detallados de tu negocio.</p>
-  </div>
-);
-
-const Configuracion = () => (
-  <div>
-    <h2 className="text-2xl font-semibold mb-4">Configuración</h2>
-    <p>Ajusta las preferencias y configuraciones de tu cuenta.</p>
-  </div>
-);
-
 export default function DashboardPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
@@ -46,7 +32,7 @@ export default function DashboardPage() {
   const toggleDarkMode = () => {
     const newDarkMode = !darkMode;
     setDarkMode(newDarkMode);
-    localStorage.setItem("darkMode", newDarkMode.toString()); 
+    localStorage.setItem("darkMode", newDarkMode.toString());
   };
 
   const toggleSidebar = () => {

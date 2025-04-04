@@ -37,11 +37,15 @@ const CargarVotantes = () => {
     try {
       await saveVoter(formData);
       setUsuarios([...usuarios, formData]);
-    } catch (err: any) {
-      console.error(
-        "Error al registrar el votante. Intenta de nuevo.",
-        err.message
-      );
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        console.error(
+          "Error al registrar el votante. Intenta de nuevo.",
+          err.message
+        );
+      } else {
+        console.error("Error al registrar el votante. Intenta de nuevo.", err);
+      }
     }
   };
 

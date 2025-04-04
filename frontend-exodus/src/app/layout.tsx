@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import { Poppins, Lexend_Deca } from "next/font/google";
 import "./globals.css";
 
-const poppins = Poppins({
-  variable: "--font-poppins",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-});
+// const poppins = Poppins({
+//   variable: "--font-poppins",
+//   subsets: ["latin"],
+//   weight: ["400", "500", "600"],
+// });
 
 const lexendDeca = Lexend_Deca({
   variable: "--font-lexend-deca",

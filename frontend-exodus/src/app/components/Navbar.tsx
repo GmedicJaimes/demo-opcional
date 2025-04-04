@@ -13,7 +13,7 @@ const Navbar: React.FC<NavbarProps> = ({
   darkMode,
   toggleDarkMode,
   toggleSidebar,
-  username,
+  // username,
   handleLogout,
 }) => {
   return (
