@@ -18,7 +18,7 @@ export default function Login() {
     setError("");
 
     try {
-      if (email === "adminDemo" && password === "@adminUser@") {
+      if (email === "admin" && password === "admin123--") {
         router.push("/dashboard");
         return;
       }

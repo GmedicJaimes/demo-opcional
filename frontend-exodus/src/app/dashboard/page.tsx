@@ -2,11 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import Sidebar from "../components/Sidebar";
-import Navbar from "../components/Navbar";
-import Dashboard from "./tableroInicio/page";
-import Usuarios from "./Usuarios/page";
-import Productos from "./CargarVotantes/page";
+import Sidebar from "../../components/Sidebar";
+import Navbar from "../../components/Navbar";
+import Dashboard from "./tablero-inicio/page";
+import Usuarios from "./usuarios/page";
+import Productos from "./cargar-votantes/page";
 
 export default function DashboardPage() {
   const router = useRouter();
