@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Cookies from "js-cookie";
 // import { loginUser } from "../Firebase/Handlers/AuthHandler"; // Asegúrate de que la ruta esté correcta
 
 export default function Login() {
@@ -18,15 +19,22 @@ export default function Login() {
     setError("");
 
     try {
+      //Verificamos credenciales
       if (email === "admin" && password === "admin123--") {
+        //Guardamos token en localStorage
+        const token = "mi-token-de-autenticacion";
+        Cookies.set("authToken", token, { expires: 1 });
+        //Redirigimos a la página de dashboard
         router.push("/dashboard");
         return;
       }
 
       // const user = await loginUser(email, password);
       // router.push("/dashboard");
-    } catch (err) {
+
       setError("Credenciales incorrectas. Intenta de nuevo.");
+    } catch (err) {
+      setError("Ocurrió un error. Intenta de nuevo.");
       console.error(err);
     } finally {
       setLoading(false);
