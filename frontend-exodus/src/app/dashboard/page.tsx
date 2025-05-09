@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import Cookies from "js-cookie";
 import Sidebar from "../../components/Sidebar";
 import Navbar from "../../components/Navbar";
 import Dashboard from "./tablero-inicio/page";
@@ -26,6 +27,7 @@ export default function DashboardPage() {
   }, [router]);
 
   const handleLogout = () => {
+    Cookies.remove("authToken");
     router.push("/");
   };
 
