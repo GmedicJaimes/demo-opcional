@@ -1,21 +1,15 @@
 import type { Metadata } from "next";
-import { Lexend_Deca, Raleway } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const lexendDeca = Lexend_Deca({
-  variable: "--font-lexend-deca",
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
-});
-
-const raleway = Raleway({
-  variable: "--font-raleway",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  variable: "--font-inter",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Exodus",
+  title: "ZAYMO",
   description: "software de gestión de documentos",
 };
 
@@ -25,10 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${lexendDeca.variable} ${raleway.variable} antialiased`}
-    >
+    <html lang="en" className={` ${inter.variable} antialiased`}>
       <body>{children}</body>
     </html>
   );

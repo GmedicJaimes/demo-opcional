@@ -45,11 +45,12 @@ export default function Login() {
     setError(""); // Limpiar el error al enfocar el campo de entrada
   };
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8 border-solid border-2 rounded-lg p-6 shadow-xl bg-white">
+    <div className="min-h-screen bg-[#00b4d8] flex  items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <div className="w-1/2 max-w-sm h-[600px] bg-[url('/loogin.webp')] bg-cover rounded-l-lg"></div>
+      <div className="w-1/2 max-w-xl h-[600px]  space-y-8 border-solid border-2 rounded-r-lg p-6 shadow-xl bg-white">
         <div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-            Iniciar Sesión
+            Iniciar sesión en la plataforma
           </h2>
         </div>
 
